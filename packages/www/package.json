@@ -2,5 +2,15 @@
   "name": "www",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^2.30.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }

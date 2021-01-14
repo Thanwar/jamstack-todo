@@ -1,0 +1,40 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add gatsby react react-dom
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;D:\anaconda;D:\anaconda\Library\mingw-w64\bin;D:\anaconda\Library\usr\bin;D:\anaconda\Library\bin;D:\anaconda\Scripts;C:\Users\THAWAR\AppData\Local\Microsoft\WindowsApps;C:\Users\THAWAR\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\THAWAR\AppData\Roaming\npm;C:\Program Files\CodeBlocks\MinGW\bin;C:\Users\THAWAR\AppData\Local\GitHubDesktop\bin;C:\Users\THAWAR\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.8.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141376:19)
+      at Object.onceWrapper (events.js:420:28)
+      at ClientRequest.emit (events.js:314:20)
+      at TLSSocket.emitRequestTimeout (_http_client.js:769:9)
+      at Object.onceWrapper (events.js:420:28)
+      at TLSSocket.emit (events.js:326:22)
+      at TLSSocket.Socket._onTimeout (net.js:483:8)
+      at listOnTimeout (internal/timers.js:551:17)
+      at processTimers (internal/timers.js:494:7)
+
+npm manifest: 
+  {
+    "name": "www",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
