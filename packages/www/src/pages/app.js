@@ -21,7 +21,7 @@ let DashLoggedOut = (props) => {
       </Flex>
 
       <Flex sx={{ flexDirection: "column", padding: 3 }}>
-        <Heading as="h1">JAMstack Todo App</Heading>
+        <Heading as="h1">Thanwar Todo App</Heading>
         <Button
           sx={{ marginTop: 2, color: "black" }}
           onClick={() => {
