@@ -1,6 +1,7 @@
 const React = require("react");
 const wrapRootElement = require("./wrap-root-element");
 const { setContext } = require("apollo-link-context");
+const netlifyIdentity = require("netlify-identity-widget");
 
 const {
     ApolloProvider,
@@ -33,11 +34,6 @@ const {
     cache: new InMemoryCache(),
     link: authLink.concat(httpLink)
   });
-
-
-
-
-
 
 
 exports.wrapRootElement = ({ element }) => {
