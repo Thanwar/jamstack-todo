@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container, Heading, Button, Flex, NavLink } from "theme-ui";
-import {IdentityContext} from "../../netlifyIdentityContext";
+import { IdentityContext } from "../../netlifyIdentityContext";
 import { Link } from "gatsby";
 
 export default (props) => {
