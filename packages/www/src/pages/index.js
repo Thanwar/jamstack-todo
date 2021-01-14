@@ -1,7 +1,15 @@
 import React from "react";
+import { Container, Heading, Button, Flex } from "theme-ui";
 
 export default props => (
-    <div>
-        <h1>Hello TODOS</h1>
-    </div>
+    <Container>
+        <Flex sx={{ flexDirection: "column", padding: 3 }}>
+            <Heading as="h1">JAMstack Todo App</Heading>
+            <Button sx={{ marginTop: 2, color: 'black' }}
+                onClick= { () => {alert("Login")} }
+            >
+                Login
+            </Button>
+        </Flex>
+    </Container>
 );
