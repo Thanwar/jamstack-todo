@@ -91,10 +91,11 @@ let Dash = () => {
 
       <Flex
         as="form"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          addTodo({ variables: { text: inputRef.current.value } });
+          await addTodo({ variables: { text: inputRef.current.value } });
           inputRef.current.value="";
+          await refetch();
         }}
       >
         <Label sx={{ display: "flex" }}>
@@ -112,13 +113,15 @@ let Dash = () => {
           <ul sx={{ listStyleType: "none" }}>
             {data.todos.map(todo => (
               <Flex
+                key={todo.id}
                 as="li"
-                onClick={() => {
-                  updateTodoDone({ variables: { id: todo.id } });
+                onClick={async () => {
+                  await updateTodoDone({ variables: { id: todo.id } });
+                  await refetch();
                 }}
               >
                 <Checkbox checked={todo.done} />
-                <span>{todo.value}</span>
+                <span>{todo.text}</span>
               </Flex>
             ))}
           </ul>)}
