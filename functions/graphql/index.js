@@ -61,7 +61,7 @@ const resolvers = {
         id: results.ref.id
       };
     },
-    updateTodoDone: (_, { id }) => {
+    updateTodoDone: async (_, { id }) => {
       if(!user){
         throw new Error("Must be logged in to add todos")
       }
