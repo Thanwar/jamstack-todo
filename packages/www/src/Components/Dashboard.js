@@ -11,9 +11,35 @@ import {
   Checkbox,
 } from "theme-ui";
 import { IdentityContext } from "../../netlifyIdentityContext";
+import { gql, useMutation, useQuery } from "@apollo/client";
 
 
+const ADD_TODO = gql`
+  mutation AddTodo($text: String!) {
+    addTodo(text: $text) {
+      id
+    }
+  }
+`;
 
+const GET_TODOS = gql`
+  query GetTodos {
+    todos {
+      id
+      text
+      done
+    }
+  }
+`;
+
+const UPDATE_TODO_DONE = gql`
+  mutation UpdateTodoDone($id: ID!) {
+    updateTodoDone(id: $id) {
+      text
+      done
+    }
+  }
+`;
 
 
 // ========>   Reducer   <========
@@ -37,6 +63,10 @@ let Dash = () => {
   const { user, identity: netlifyIdentity } = useContext(IdentityContext);
   const inputRef = useRef();
   const [todos, dispatch] = useReducer(todosReducer, []);
+  const [addTodo] = useMutation(ADD_TODO);
+  const [updateTodoDone] = useMutation(UPDATE_TODO_DONE);
+  const { loading, error, data, refetch } = useQuery(GET_TODOS);
+
   return (
     <Container>
       <Flex as="nav">
@@ -63,7 +93,7 @@ let Dash = () => {
         as="form"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch({ type: "addTodo",payload: inputRef.current.value})
+          addTodo({ variables: { text: inputRef.current.value } });
           inputRef.current.value="";
         }}
       >
@@ -76,22 +106,22 @@ let Dash = () => {
     
     
       <Flex sx={{ flexDirection: "column" }}>
+      {loading ? <div>loading...</div> : null}
+        {error ? <div>{error.message}</div> : null}
+        {!loading && !error && (
           <ul sx={{ listStyleType: "none" }}>
-            {todos.map((todo,i) => (
+            {data.todos.map(todo => (
               <Flex
                 as="li"
                 onClick={() => {
-                  dispatch({
-                      type: "toggleTodoDone",
-                      payload: i
-                  });
+                  updateTodoDone({ variables: { id: todo.id } });
                 }}
               >
                 <Checkbox checked={todo.done} />
                 <span>{todo.value}</span>
               </Flex>
             ))}
-          </ul>
+          </ul>)}
       </Flex>
 
     </Container>
